@@ -3,6 +3,7 @@ import time
 from tkinter import *
 
 from Ball import Ball
+from Stick import Stick
 
 tk = Tk()
 tk.title("JumpBall")
@@ -12,7 +13,8 @@ canvas = Canvas(tk, width=500, height=400, bd=0, highlightthickness=0)
 canvas.pack()
 tk.update()
 
-ball_count = 10
+stick = Stick(canvas, 'brown')
+ball_count = 1
 colors = ["red", "blue", "green", "orange", "yellow"]
 balls = []
 for i in range(ball_count):
@@ -25,6 +27,7 @@ for i in range(ball_count):
 while True:
     for ball in balls:
         ball.draw()
+    stick.draw()
     tk.update_idletasks()
     tk.update()
     time.sleep(0.001)
