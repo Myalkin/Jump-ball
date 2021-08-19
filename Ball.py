@@ -5,9 +5,10 @@ class Ball:
     def __init__(self, canvas, stick, color, startX, startY):
         self.canvas = canvas
         self.stick = stick
+        self.hit_bottom = False
         self.id = canvas.create_oval(10, 10, 25, 25, fill=color)
         self.canvas.move(self.id, startX, startY)
-        starts = [-3, -2, -1, 1, 2, 3]
+        starts = [-6, -5, 5, 6]
         random.shuffle(starts)
         self.x = random.choice(starts)
         self.y = random.choice(starts)
@@ -28,10 +29,9 @@ class Ball:
             self.y = -3
         if pos[0] <= 0:
             self.x = 3
-
         if pos[1] <= 0:
             self.y = 1
         if pos[2] >= self.canvas_width:
             self.x = -3
         if pos[3] >= self.canvas_height:
-            self.y = -1
+            self.hit_bottom = True
