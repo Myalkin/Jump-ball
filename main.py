@@ -21,7 +21,7 @@ for i in range(ball_count):
     startX = random.randrange(1, 400)
     startY = random.randrange(1, 400)
     color = random.choice(colors)
-    ball = Ball(canvas, color, startX, startY)
+    ball = Ball(canvas, stick, color, startX, startY)
     balls.append(ball)
 
 while True:
